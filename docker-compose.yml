@@ -5,6 +5,8 @@ services:
         user: $MUID:$MGID
         build:
             context: .
+        environment: 
+            - DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
         ports:
             - "8000:8000"
         volumes:
