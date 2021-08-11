@@ -1,15 +1,16 @@
-version: "3.8"
+version: '3.8'
 
 services:
-    app:
-        user: $MUID:$MGID
-        build:
-            context: .
-        environment: 
-            - DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
-        ports:
-            - "8000:8000"
-        volumes:
-            - ./app:/app
-        command: >
-            sh -c "python manage.py runserver 0.0.0.0:8000"
+  app:
+    user: $MUID:$MGID
+    build:
+      context: .
+    environment:
+      - DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
+      - DJANGO_SETTINGS_MODULE=app.settings
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
